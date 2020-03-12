@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block content %}
+{% block header %}
 <!-- Page Header -->
 <header class="masthead" style="background-image: url({{ url_for('static', filename='img/home-bg.jpg') }})">
   <div class="overlay"></div>
@@ -14,11 +14,9 @@
     </div>
   </div>
 </header>
+{% endblock header %}
+{% block content %}
 
-<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
       <div class="post-preview">
         <a href="{{ url_for('post') }}">
           <h2 class="post-title">
@@ -76,7 +74,5 @@
       <div class="clearfix">
         <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
       </div>
-    </div>
-  </div>
-</div>
+
 {% endblock content %}

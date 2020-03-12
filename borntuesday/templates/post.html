@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block content %}
+{% block header %}
 
   <!-- Page Header -->
   <header class="masthead" style="background-image: url({{ url_for('static',filename='img/post-bg.jpg') }})">
@@ -18,7 +18,8 @@
       </div>
     </div>
   </header>
-
+{% endblock header %}
+{% block content %}
   <!-- Post Content -->
   <article>
     <div class="container">
