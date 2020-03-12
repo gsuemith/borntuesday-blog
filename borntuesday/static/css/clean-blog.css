@@ -312,11 +312,10 @@ header.masthead .post-heading .meta a {
 }
 
 .floating-label-form-group {
-  font-size: 14px;
+  font-size: 20px;
   position: relative;
   margin-bottom: 0;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #dee2e6;
 }
 
 .floating-label-form-group input,
