@@ -24,6 +24,7 @@ class Post(db.Model):
     subtitle = db.Column(db.Text, nullable=False)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default='post-bg.jpg')
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"

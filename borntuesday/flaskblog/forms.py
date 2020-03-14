@@ -61,4 +61,6 @@ class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     subtitle = TextAreaField('Subtitle or Lede', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
+    picture = FileField('Update Background Picture',
+                        validators=[FileAllowed(['jpg','png'])])
     submit = SubmitField('Post')

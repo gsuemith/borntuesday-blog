@@ -112,6 +112,18 @@ def new_post():
                             form=form,
                             legend='Create Post')
 
+def save_background(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path,
+                                'static/img',
+                                picture_fn)
+
+    form_picture.save(picture_path)
+
+    return picture_fn
+
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
@@ -120,6 +132,9 @@ def update_post(post_id):
         abort(403)
     form = PostForm()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_background(form.picture.data)
+            post.image_file = picture_file
         post.title = form.title.data
         post.subtitle = form.subtitle.data
         post.content = form.content.data
@@ -130,9 +145,12 @@ def update_post(post_id):
         form.title.data = post.title
         form.subtitle.data = post.subtitle
         form.content.data = post.content
+    image_file = url_for('static',
+                        filename='img/' + post.image_file)
     return render_template('create_post.html',
                             title='Update Post',
                             form=form,
+                            image_file=image_file,
                             legend='Update Post')
 
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
