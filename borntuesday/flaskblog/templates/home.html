@@ -16,15 +16,14 @@
 </header>
 {% endblock header %}
 {% block content %}
-  {% for post in posts %}
-
+  {% for post in posts.items %}
     <div class="post-preview">
-      <a href="{{ url_for('post') }}">
+      <a href="{{ url_for('post', post_id=post.id) }}">
         <h2 class="post-title">
           {{ post.title }}
         </h2>
         <h3 class="post-subtitle">
-          {{ post.subtitle }}
+          {{ post.subtitle | safe }}
         </h3>
       </a>
       <div class="row">

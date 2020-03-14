@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="page-heading">
-          <h1>Create Post</h1>
+          <h1>{{ legend }}</h1>
           <span class="subheading">Write your post below.</span>
         </div>
       </div>
@@ -22,7 +22,7 @@
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">
-        New Post
+        {{ legend }}
       </legend>
       <div class="form-group">
         {{ form.title.label(class="floating-label-form-group controls") }}
@@ -60,7 +60,7 @@
             {% endfor %}
           </div>
         {% else %}
-          {{ form.content(class="form-control form-control-lg") }}
+          {{ form.content(rows="10", class="form-control form-control-lg") }}
         {% endif %}
       </div>
     </fieldset>
