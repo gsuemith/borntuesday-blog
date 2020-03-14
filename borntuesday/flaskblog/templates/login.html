@@ -15,9 +15,6 @@
 </header>
 {% endblock header %}
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
       <div class="content-section">
         <form method="POST" action="">
           {{ form.hidden_tag() }}
@@ -69,7 +66,4 @@
           Need an account? <a class="ml-2" href="{{ url_for('register') }}">Sign up now.</a>
         </small>
       </div>
-    </div>
-  </div>
-</div>
 {% endblock content %}
