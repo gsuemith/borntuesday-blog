@@ -8,8 +8,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Born Tuesday - {{ title }}</title>
-
+  {% if title %}
+    <title>Born Tuesday - {{ title }}</title>
+  {% else %}
+    <title>Born Tuesday</title>
+  {% endif %}
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 

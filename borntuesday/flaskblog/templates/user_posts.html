@@ -7,8 +7,9 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Born Tuesday</h1>
-          <span class="subheading">A Blog by Mr. Pell and Mr. Suemith</span>
+          <h2>Posts by</h2>
+          <h1>{{ user.username }}</h1>
+          <span class="subheading">{{ posts.total }} total posts</span>
         </div>
       </div>
     </div>
@@ -44,9 +45,9 @@
   {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
     {% if page_num %}
       {% if posts.page == page_num %}
-        <a class="btn btn-primary" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        <a class="btn btn-primary" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
       {% else %}
-        <a class="btn btn-secondary" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        <a class="btn btn-secondary" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
       {% endif %}
     {% else %}
       ...
